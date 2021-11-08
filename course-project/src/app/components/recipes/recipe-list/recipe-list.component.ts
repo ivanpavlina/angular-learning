@@ -8,7 +8,16 @@ import {Recipe} from "../../../models/recipe.model";
 })
 export class RecipeListComponent implements OnInit {
 
-  recipes: Recipe[] = [];
+  recipes: Recipe[] = [
+    new Recipe(
+      'A Test Recipe',
+      'This is simply a test',
+      'https://images.immediate.co.uk/production/volatile/sites/30/2021/08/Sausage-and-mushroom-ragu-203c7d4.jpg?quality=90&resize=960,872'),
+    new Recipe(
+      'A Test Recipe',
+      'This is simply a test',
+      'https://images.immediate.co.uk/production/volatile/sites/30/2021/08/Sausage-and-mushroom-ragu-203c7d4.jpg?quality=90&resize=960,872'),
+  ];
 
   constructor() { }
 
