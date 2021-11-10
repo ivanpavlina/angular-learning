@@ -11,6 +11,8 @@ export class AppComponent {
     {type: 'server', name: 'Test', content: 'Some test!'}
   ];
 
+  numbers: number[] = [];
+
   onServerAdded(serverData: { serverName: string, serverContent: string }) {
     this.serverElements.push({
       type: 'server',
@@ -26,4 +28,9 @@ export class AppComponent {
       content: blueprintData.blueprintContent
     });
   }
+
+  onGameEvent(event: number) {
+    this.numbers.push(event);
+  }
+
 }

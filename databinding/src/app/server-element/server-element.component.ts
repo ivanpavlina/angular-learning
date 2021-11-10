@@ -1,4 +1,14 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation} from '@angular/core';
+import {
+  AfterContentInit,
+  Component,
+  ContentChild,
+  ElementRef,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+  ViewEncapsulation
+} from '@angular/core';
 
 @Component({
   selector: 'app-server-element',
@@ -6,7 +16,10 @@ import {Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation} f
   styleUrls: ['./server-element.component.css'],
   encapsulation: ViewEncapsulation.Emulated
 })
-export class ServerElementComponent implements OnInit, OnChanges {
+export class ServerElementComponent implements OnInit, OnChanges, AfterContentInit {
+
+  @ContentChild('contentParagraph')
+  paragraph: ElementRef;
 
   @Input("srvElement")
   element: {
@@ -26,6 +39,10 @@ export class ServerElementComponent implements OnInit, OnChanges {
 
   ngOnInit(): void {
     console.log("ngOnInit");
+  }
+
+  ngAfterContentInit() {
+    console.log("ngAfterContentInit");
   }
 
 }

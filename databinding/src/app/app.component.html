@@ -13,13 +13,26 @@
         *ngFor="let serverElement of serverElements"
         [srvElement]="serverElement">
 
-        <p>
+        <p #contentParagraph>
           <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
           <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
         </p>
 
       </app-server-element>
     </div>
+  </div>
+
+  <hr>
+  <hr>
+
+  <app-game-control
+  (gameEvent)="onGameEvent($event)"></app-game-control>
+
+  <div class="row"
+       *ngFor="let number of numbers">
+    <div *ngIf="number % 2 == 0; then even else odd"></div>
+    <ng-template #even><app-even [number]="number"></app-even></ng-template>
+    <ng-template #odd><app-odd [number]="number"></app-odd></ng-template>
   </div>
 
 </div>
